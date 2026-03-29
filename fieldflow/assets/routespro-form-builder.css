@@ -1,0 +1,259 @@
+.twt-tcrm-form-builder,
+.twt-tcrm-form-builder * {
+  box-sizing: border-box;
+}
+
+.twt-tcrm-form-builder .twt-fb-toolbar{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  margin-bottom:12px;
+}
+
+.twt-tcrm-form-builder .twt-fb-hint{
+  opacity:.75;
+  font-size:12px;
+}
+
+.twt-fb-list{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.twt-fb-item{
+  border:1px solid rgba(0,0,0,0.10);
+  border-radius:12px;
+  background:#fff;
+  overflow:hidden;
+}
+
+.twt-fb-head{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 12px;
+  background:rgba(0,0,0,0.03);
+}
+
+.twt-fb-drag{
+  cursor:grab;
+  user-select:none;
+  font-weight:800;
+  opacity:.65;
+  padding:2px 6px;
+  border-radius:8px;
+}
+
+.twt-fb-drag:hover{
+  background: rgba(0,0,0,0.05);
+  opacity:.85;
+}
+
+.twt-fb-drag:active{
+  cursor:grabbing;
+}
+
+.twt-fb-label{
+  flex:1;
+}
+
+.twt-fb-type{
+  font-size:12px;
+  opacity:.75;
+  border:1px solid rgba(0,0,0,0.12);
+  border-radius:999px;
+  padding:2px 8px;
+  background:#fff;
+}
+
+.twt-fb-body{
+  padding:12px;
+}
+
+.twt-fb-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+}
+
+/* garantir grid-3 mesmo se usado “sozinho” */
+.twt-fb-grid-3{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+}
+
+@media (min-width: 980px){
+  .twt-fb-grid{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .twt-fb-grid-3{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.twt-fb-row label{
+  display:block;
+  font-size:12px;
+  opacity:.8;
+  margin-bottom:6px;
+}
+
+.twt-fb-row input[type="text"],
+.twt-fb-row input[type="number"],
+.twt-fb-row textarea,
+.twt-fb-row select{
+  width:100%;
+  border:1px solid rgba(0,0,0,0.18);
+  border-radius:10px;
+  padding:10px 10px;
+  background:#fff;
+}
+
+.twt-fb-row input[type="text"]:focus,
+.twt-fb-row input[type="number"]:focus,
+.twt-fb-row textarea:focus,
+.twt-fb-row select:focus{
+  outline: none;
+  border-color: rgba(0,0,0,0.35);
+  box-shadow: 0 0 0 3px rgba(0,0,0,0.06);
+}
+
+.twt-fb-row textarea{
+  resize: vertical;
+}
+
+.twt-fb-small{
+  font-size:12px;
+  opacity:.7;
+  margin-top:6px;
+}
+
+.twt-fb-check{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+}
+
+.twt-fb-preview-wrap {
+  display: block;
+  margin: 10px 0 0 0;
+  padding: 10px;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 10px;
+  background: #fff;
+}
+
+.twt-fb-preview {
+  display: block;
+}
+
+.twt-fb-preview input,
+.twt-fb-preview textarea,
+.twt-fb-preview select {
+  width: 100%;
+  max-width: 100%;
+}
+
+.twt-fb-placeholder{
+  border:2px dashed rgba(0,0,0,0.25);
+  border-radius:12px;
+  height:56px;
+  background:rgba(0,0,0,0.02);
+}
+
+/* Placeholder específico para Steps, com altura automática */
+.twt-fb-steps .twt-fb-placeholder{
+  height:auto;
+  min-height:64px;
+}
+
+/* Melhor feedback visual durante drag (jQuery UI sortable) */
+.twt-fb-item.ui-sortable-helper,
+.twt-fb-step.ui-sortable-helper{
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+  transform: rotate(0.2deg);
+}
+
+/* =========================================================
+   Layout/Steps UI (wizard builder)
+   ========================================================= */
+
+.twt-fb-layout{
+  margin:14px 0 0 0;
+  padding:12px;
+  border:1px solid rgba(0,0,0,0.12);
+  border-radius:12px;
+  background:#fff;
+}
+
+.twt-fb-layout .twt-fb-small{
+  margin-top:4px;
+}
+
+.twt-fb-steps{
+  margin-top:12px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.twt-fb-step{
+  border:1px solid rgba(0,0,0,0.10);
+  border-radius:12px;
+  padding:12px;
+  background: rgba(0,0,0,0.015);
+}
+
+.twt-fb-drag-step{
+  cursor:grab;
+  user-select:none;
+  font-weight:800;
+  opacity:.65;
+  padding:2px 6px;
+  border-radius:8px;
+}
+
+.twt-fb-drag-step:hover{
+  background: rgba(0,0,0,0.05);
+  opacity:.85;
+}
+
+.twt-fb-drag-step:active{
+  cursor:grabbing;
+}
+
+.twt-fb-step-fields{
+  margin-top:8px;
+  padding:10px;
+  border:1px solid rgba(0,0,0,0.08);
+  border-radius:10px;
+  background:#fff;
+  max-height: 260px;
+  overflow:auto;
+  overscroll-behavior: contain;
+}
+
+.twt-fb-step-fields label{
+  margin:0;
+  padding:6px 2px;
+}
+
+.twt-fb-step-fields label:hover{
+  background: rgba(0,0,0,0.02);
+  border-radius:8px;
+}
+
+.twt-fb-width-row select{
+  max-width: 160px;
+}
+
+.twt-fb-step input[type="text"]{
+  background:#fff;
+}
+
+/* Buttons spacing on layout header */
+.twt-fb-layout .button{
+  white-space:nowrap;
+}

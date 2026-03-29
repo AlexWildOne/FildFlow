@@ -1,54 +1,41 @@
 <?php
 
-class CampaignLocations {
-    // ... Existing methods and properties ...
+namespace App\Admin;
 
-    public function build_week_plan($base_date) {
-        // Implement planning for Monday–Friday of the week containing week_start
-        // Skip weekends/holidays within that week only
-        // Include visits for monthly-frequency items based on resolve_monthly_week_indexes
-        // Populate excluded_days and excluded_holidays
-        // ... New implementation ...
+use App\Entity\CampaignLocation;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Web\Controller;
+
+/**
+ * @Route("/admin/campaign-locations")
+ */
+class CampaignLocations
+{
+    private $entityManager;
+
+    public function __construct(EntityManagerInterface $entityManager)
+    {
+        $this->entityManager = $entityManager;
     }
 
-    public function build_month_plan($base_date) {
-        // Refactor to use build_month_business_calendar() instead of ISO week keys
-        // Ensure month weeks based on Monday-Friday buckets inside the month
-        // Include week_start/week_end
-        // Preserve existing monthly distribution logic and limit weekly items per available dates
-        // ... New implementation ...
+    /**
+     * @Route("/", methods={"GET"})
+     */
+    public function index(Request $request): Response
+    {
+        // Code to list campaign locations
     }
 
-    public function build_month_business_calendar() {
-        // New method implementation based on existing surgical file
+    /**
+     * @Route("/{id}", methods={"GET"})
+     */
+    public function show(int $id): Response
+    {
+        // Code to show a specific campaign location
     }
 
-    public function resolve_monthly_week_indexes() {
-        // New method implementation based on existing surgical file
-    }
-
-    public function normalize_spread_indexes() {
-        // New method implementation based on existing surgical file
-    }
-
-    public function build_reinforcement_week_order() {
-        // New method implementation based on existing surgical file
-    }
-
-    public function find_bucket_key_for_date($date) {
-        // New method implementation based on existing surgical file
-    }
-
-    public function bucket_index_by_key($key) {
-        // New method implementation based on existing surgical file
-    }
-
-    public function adjust_reinforcement_recommendation_logic() {
-        // Adjust the recommendation logic
-        // Recommended should be true only when there are unassigned visits
-        // Merge reinforcement summaries
-        // Preserve all other code unchanged
-    }
-
-    // ... Other existing methods ...
+    // Additional methods for create, update, delete, etc.
 }
